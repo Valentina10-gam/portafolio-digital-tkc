@@ -1,0 +1,89 @@
+@import "tailwindcss";
+
+:root {
+  /* Marca — extraídos directamente de public/brand/tkc-group.png, sin alterar los logos */
+  --color-tkc-purple: #250045;
+  --color-tkc-purple-soft: #3d1a68;
+  --color-tkc-purple-tint: #efe7f7;
+  --color-tkc-blue: #65cffb;
+  --color-tkc-blue-soft: #d6f2ff;
+  --color-tkc-core: #14002b;
+
+  /* Base editorial clara — neutros con temperatura fría/lavanda para
+     alinearse con el morado de marca (nunca amarillos/cálidos) */
+  --color-paper: #ffffff;
+  --color-ivory: #f7f6f9;
+  --color-mist: #eeecf3;
+  --color-line: #ddd9e3;
+  --color-line-strong: #c3bcd0;
+  --color-ink: #1a1522;
+  --color-ink-soft: #55506080;
+
+  /* Ritmo y movimiento */
+  --ease-editorial: cubic-bezier(0.16, 1, 0.3, 1);
+  --duration-soft: 0.6s;
+  --duration-quick: 0.25s;
+
+  --background: var(--color-paper);
+  --foreground: var(--color-ink);
+}
+
+@theme inline {
+  --color-background: var(--background);
+  --color-foreground: var(--foreground);
+
+  --color-tkc-purple: var(--color-tkc-purple);
+  --color-tkc-purple-soft: var(--color-tkc-purple-soft);
+  --color-tkc-purple-tint: var(--color-tkc-purple-tint);
+  --color-tkc-blue: var(--color-tkc-blue);
+  --color-tkc-blue-soft: var(--color-tkc-blue-soft);
+  --color-tkc-core: var(--color-tkc-core);
+  --color-paper: var(--color-paper);
+  --color-ivory: var(--color-ivory);
+  --color-mist: var(--color-mist);
+  --color-line: var(--color-line);
+  --color-line-strong: var(--color-line-strong);
+  --color-ink: var(--color-ink);
+
+  --font-sans: var(--font-geist-sans);
+  --font-mono: var(--font-geist-mono);
+}
+
+body {
+  background: var(--background);
+  color: var(--foreground);
+}
+
+::selection {
+  background: var(--color-tkc-purple);
+  color: var(--color-paper);
+}
+
+@keyframes marquee-left {
+  from {
+    transform: translateX(0);
+  }
+  to {
+    transform: translateX(-50%);
+  }
+}
+
+@keyframes marquee-right {
+  from {
+    transform: translateX(-50%);
+  }
+  to {
+    transform: translateX(0);
+  }
+}
+
+@media (prefers-reduced-motion: reduce) {
+  *,
+  *::before,
+  *::after {
+    animation-duration: 0.001ms !important;
+    animation-iteration-count: 1 !important;
+    transition-duration: 0.001ms !important;
+    scroll-behavior: auto !important;
+  }
+}
