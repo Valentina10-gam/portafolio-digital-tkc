@@ -1,5 +1,6 @@
 import fs from "node:fs";
 import path from "node:path";
+import { withBasePath } from "@/lib/base-path";
 
 const CLIENTS_DIR = path.join(process.cwd(), "public", "clients");
 
@@ -61,7 +62,7 @@ export function getClientLogos(): ClientLogo[] {
     return {
       slug,
       name: NAME_OVERRIDES[slug] ?? titleize(slug),
-      src: `/clients/${file}`,
+      src: withBasePath(`/clients/${file}`),
     };
   });
 

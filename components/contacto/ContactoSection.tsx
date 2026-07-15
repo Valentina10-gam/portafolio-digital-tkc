@@ -8,6 +8,7 @@ import GlowOrb from "@/components/ui/GlowOrb";
 import SectionEdge from "@/components/ui/SectionEdge";
 import { GROUP_LOGO, GROUP_LOGO_DIMENSIONS } from "@/lib/brand-assets";
 import { WHATSAPP_URL } from "@/lib/links";
+import { withBasePath } from "@/lib/base-path";
 
 const CANAL_ICONS: Record<string, typeof Phone> = {
   Llámenos: Phone,
@@ -180,7 +181,7 @@ export default function ContactoSection({ data }: { data: Contacto }) {
             <div className="relative z-10 overflow-hidden rounded-tl-lg rounded-tr-[3rem] rounded-br-lg rounded-bl-[3rem] shadow-2xl">
               <div className="relative aspect-[3/2] w-full">
                 <Image
-                  src="/images/contacto-tkc.png"
+                  src={withBasePath("/images/contacto-tkc.png")}
                   alt="Equipo TKC Fumigaciones Group"
                   fill
                   sizes="(min-width: 768px) 45vw, 100vw"

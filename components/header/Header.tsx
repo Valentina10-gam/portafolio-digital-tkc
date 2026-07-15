@@ -4,6 +4,7 @@ import { useState } from "react";
 import Image from "next/image";
 import { Menu, X } from "lucide-react";
 import { WHATSAPP_URL } from "@/lib/links";
+import { GROUP_LOGO, GROUP_LOGO_DIMENSIONS } from "@/lib/brand-assets";
 
 const NAV_LINKS = [
   { href: "#quienes-somos", label: "Quiénes somos" },
@@ -23,10 +24,10 @@ export default function Header() {
           aria-label="TKC Fumigaciones Group — inicio"
         >
           <Image
-            src="/brand/tkc-group.png"
+            src={GROUP_LOGO}
             alt="TKC Fumigaciones Group"
-            width={2052}
-            height={1820}
+            width={GROUP_LOGO_DIMENSIONS.width}
+            height={GROUP_LOGO_DIMENSIONS.height}
             priority
             sizes="200px"
             style={{ height: "2.25rem", width: "auto" }}

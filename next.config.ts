@@ -1,20 +1,20 @@
 import type { NextConfig } from "next";
 
 // Despliegue estático en GitHub Pages: el sitio queda servido bajo
-// /portafolio-digital-tkc/, por lo que basePath/assetPrefix solo se
-// activan en el build de GitHub Actions (no en desarrollo ni en
-// validaciones locales de `next build`).
-const isGithubActions = process.env.GITHUB_ACTIONS === "true";
-const repoName = "portafolio-digital-tkc";
+// /portafolio-digital-tkc/. NEXT_PUBLIC_BASE_PATH la define el workflow de
+// GitHub Actions (ver .github/workflows/deploy-pages.yml) y es la misma
+// variable que usa lib/base-path.ts para las rutas de imágenes; en
+// desarrollo o en un `next build` local queda vacía.
+const basePath = process.env.NEXT_PUBLIC_BASE_PATH ?? "";
 
 const nextConfig: NextConfig = {
   output: "export",
   images: {
     unoptimized: true,
   },
-  ...(isGithubActions && {
-    basePath: `/${repoName}`,
-    assetPrefix: `/${repoName}/`,
+  ...(basePath && {
+    basePath,
+    assetPrefix: `${basePath}/`,
   }),
 };
 

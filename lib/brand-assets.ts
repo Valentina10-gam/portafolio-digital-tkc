@@ -1,13 +1,14 @@
 import type { LineaNegocio } from "@/lib/content";
+import { withBasePath } from "@/lib/base-path";
 
-export const GROUP_LOGO = "/brand/tkc-group.png";
-export const GROUP_LOGO_WHITE = "/brand/tkc-group-blanco.png";
+export const GROUP_LOGO = withBasePath("/brand/tkc-group.png");
+export const GROUP_LOGO_WHITE = withBasePath("/brand/tkc-group-blanco.png");
 
 export const LINEA_LOGOS: Record<LineaNegocio["id"], string> = {
-  "tkc-corp": "/brand/tkc-corp.png",
-  hidriko: "/brand/hidriko.png",
-  "tkc-security": "/brand/tkc-security.png",
-  "tkc-home": "/brand/tkc-home.png",
+  "tkc-corp": withBasePath("/brand/tkc-corp.png"),
+  hidriko: withBasePath("/brand/hidriko.png"),
+  "tkc-security": withBasePath("/brand/tkc-security.png"),
+  "tkc-home": withBasePath("/brand/tkc-home.png"),
 };
 
 export const GROUP_LOGO_DIMENSIONS = { width: 2052, height: 1820 };
